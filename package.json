@@ -1,0 +1,32 @@
+{
+  "name": "react-jqueryui-datepicker",
+  "version": "1.0.0",
+  "author": "Joe Cruz <joecruz.tvmb@gmail.com> (https://cnpagency.com)",
+  "homepage": "https://github.com/theverymeanboy/react-jqueryui-datepicker",
+  "description": "React Component for jQueryUI DatePicker",
+  "main": "index.js",
+  "repository": "https://theverymeanboy@github.com/theverymeanboy/react-jqueryui-datepicker.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theverymeanboy/react-jqueryui-datepicker/issues",
+    "email": "joecruz.tvmb@gmail.com"
+  },
+  "scripts": {
+    "build": "babel ./src/DatePicker.js --out-file ./index.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1"
+  }
+}
