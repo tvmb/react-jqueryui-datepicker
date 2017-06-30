@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27,45 +31,24 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DatePicker = function (_React$Component) {
 	_inherits(DatePicker, _React$Component);
 
-	_createClass(DatePicker, [{
-		key: '_removePicker',
-		value: function _removePicker() {
-			var element = this.refs.datepicker;
-			$(element).datepicker('destroy');
-		}
-	}, {
-		key: '_addPicker',
-		value: function _addPicker() {
-			var element = this.refs.datepicker;
-			$(element).datepicker();
-		}
-	}]);
-
-	function DatePicker(props) {
+	function DatePicker() {
 		_classCallCheck(this, DatePicker);
 
-		return _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+		return _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).apply(this, arguments));
 	}
 
 	_createClass(DatePicker, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
-			this._addPicker();
-		}
-	}, {
-		key: 'componentWillReceiveProps',
-		value: function componentWillReceiveProps() {
-			this._removePicker();
-		}
-	}, {
-		key: 'componentDidUpdate',
-		value: function componentDidUpdate() {
-			this._addPicker();
-		}
-	}, {
-		key: 'componentWillUnmount',
-		value: function componentWillUnmount() {
-			this._removePicker();
+			var _this2 = this;
+
+			if (this.refs.datepicker.classList.contains('hasDatePicker')) return;
+
+			$(this.refs.datepicker).datepicker({
+				onSelect: function onSelect(value) {
+					return _this2.props.onChange(value ? (0, _moment2.default)(value, 'MM/DD/YYYY') : '');
+				}
+			});
 		}
 	}, {
 		key: 'render',
@@ -73,7 +56,9 @@ var DatePicker = function (_React$Component) {
 			return _react2.default.createElement('input', _extends({
 				type: 'text',
 				ref: 'datepicker',
-				onChange: this.props.onChange
+				onChange: function onChange(e) {
+					return console.log(e);
+				}
 			}, this.props));
 		}
 	}]);

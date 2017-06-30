@@ -1,6 +1,6 @@
 {
   "name": "react-jqueryui-datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Joe Cruz <joecruz.tvmb@gmail.com> (https://cnpagency.com)",
   "homepage": "https://github.com/theverymeanboy/react-jqueryui-datepicker",
   "description": "React Component for jQueryUI DatePicker",
@@ -26,6 +26,7 @@
     "babel-preset-react": "^6.24.1"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.6.1"
   }

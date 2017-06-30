@@ -2,43 +2,22 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 class DatePicker extends React.Component {
-	_removePicker () {
-		const element = this.refs.datepicker;
-		$ ( element ).datepicker ( 'destroy' );
-	}
-	
-	_addPicker () {
-		const element = this.refs.datepicker;
-		$ ( element ).datepicker ();
-	}
-	
-	constructor ( props ) {
-		super ( props );
-	}
-	
 	componentDidMount () {
-		this._addPicker ();
-	}
-	
-	componentWillReceiveProps () {
-		this._removePicker ();
-	}
-	
-	componentDidUpdate () {
-		this._addPicker ();
-	}
-	
-	componentWillUnmount () {
-		this._removePicker ();
+		if ( this.refs.datepicker.classList.contains ( 'hasDatePicker' ) ) return;
+		
+		$ ( this.refs.datepicker ).datepicker ( {
+			onSelect : ( value ) => this.props.onChange ( value ? Moment ( value , 'MM/DD/YYYY' ) : '' )
+		} );
 	}
 	
 	render () {
 		return <input
 			type="text"
 			ref="datepicker"
-			onChange={this.props.onChange}
+			onChange={(e) => console.log(e)}
 			{...this.props}/>
 	}
 }
