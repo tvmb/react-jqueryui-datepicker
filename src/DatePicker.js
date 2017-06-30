@@ -17,7 +17,6 @@ class DatePicker extends React.Component {
 		return <input
 			type="text"
 			ref="datepicker"
-			onChange={(e) => console.log(e)}
 			{...this.props}/>
 	}
 }
